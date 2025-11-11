@@ -16,6 +16,12 @@ update:
 	@echo
 	@echo "================================================================"
 	@echo
+	@echo "===== BUN ====="
+	bun upgrade
+	bun update -g --latest || true
+	@echo
+	@echo "================================================================"
+	@echo
 	@echo "===== PNPM ====="
 	pnpm update -g --latest
 	@echo
@@ -42,7 +48,7 @@ update:
 	@echo "================================================================"
 	@echo
 	@echo "===== SDKMAN ====="
-	sdk selfupdate || true
+	@bash -c "source ~/.sdkman/bin/sdkman-init.sh && sdk selfupdate"
 	@echo
 	@echo "================================================================"
 	@echo
