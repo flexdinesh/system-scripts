@@ -47,9 +47,4 @@ update:
 	@echo
 	@echo "================================================================"
 	@echo
-	@echo "===== SDKMAN ====="
-	@bash -c "source ~/.sdkman/bin/sdkman-init.sh && sdk selfupdate"
-	@echo
-	@echo "================================================================"
-	@echo
 	@echo "===== DONE ====="
