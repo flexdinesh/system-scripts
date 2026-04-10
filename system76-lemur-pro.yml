@@ -1,0 +1,101 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Update system76-lemur-pro packages and tools
+    preconditions:
+      - sh: '[ "$(uname -s)" = Linux ]'
+        msg: system76-lemur-pro only runs on Linux
+    cmds:
+      - task: sudo-auth
+      - task: pacman-update
+      - task: paru-update
+      - task: post-upgrade
+
+  sudo-auth:
+    internal: true
+    desc: Cache sudo credentials
+    cmds:
+      - sudo -v
+
+  post-upgrade:
+    internal: true
+    deps:
+      - flatpak-update
+      - npm-flow
+      - bun-flow
+      - pnpm-update
+      - neovim-update
+      - vscode-update
+
+  pacman-update:
+    internal: true
+    desc: Update pacman packages
+    cmds:
+      - sudo pacman -Syu --noconfirm
+
+  paru-update:
+    internal: true
+    desc: Update paru packages
+    cmds:
+      - paru -Syu --noconfirm
+
+  flatpak-update:
+    internal: true
+    desc: Update Flatpak apps
+    cmds:
+      - sudo flatpak update -y
+
+  npm-flow:
+    internal: true
+    cmds:
+      - task: npm-install
+      - task: npm-update
+
+  npm-install:
+    internal: true
+    desc: Install latest npm
+    cmds:
+      - npm install -g npm@latest
+
+  npm-update:
+    internal: true
+    desc: Update global npm packages
+    cmds:
+      - npm update -g
+
+  bun-flow:
+    internal: true
+    cmds:
+      - task: bun-upgrade
+      - task: bun-global-update
+
+  bun-upgrade:
+    internal: true
+    desc: Upgrade Bun
+    cmds:
+      - bun upgrade
+
+  bun-global-update:
+    internal: true
+    desc: Update global Bun packages
+    cmds:
+      - bun update -g --latest
+
+  pnpm-update:
+    internal: true
+    desc: Update global pnpm packages
+    cmds:
+      - pnpm update -g --latest
+
+  neovim-update:
+    internal: true
+    desc: Update Neovim plugins
+    cmds:
+      - 'nvim --headless "+Lazy! update" +qa'
+
+  vscode-update:
+    internal: true
+    desc: Update VS Code extensions
+    cmds:
+      - code --update-extensions
