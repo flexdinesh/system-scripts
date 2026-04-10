@@ -15,34 +15,34 @@ update:
 	@echo "================================================================"
 	@echo
 	@echo "===== FLATPAK ====="
-	sudo flatpak update -y
+	timeout 120s sudo flatpak update -y
 	@echo
 	@echo "================================================================"
 	@echo
 	@echo "===== NPM ====="
-	npm install -g npm@latest
-	npm update -g
+	timeout 30s npm install -g npm@latest
+	timeout 30s npm update -g
 	@echo
 	@echo "================================================================"
 	@echo
 	@echo "===== BUN ====="
-	bun upgrade
-	bun update -g --latest
+	timeout 30s bun upgrade
+	timeout 30s bun update -g --latest
 	@echo
 	@echo "================================================================"
 	@echo
 	@echo "===== PNPM ====="
-	pnpm update -g --latest
+	timeout 30s pnpm update -g --latest
 	@echo
 	@echo "================================================================"
 	@echo
 	@echo "===== NEOVIM ====="
-	nvim --headless "+Lazy! update" +qa
+	timeout 30s nvim --headless "+Lazy! update" +qa
 	@echo
 	@echo "================================================================"
 	@echo
 	@echo "===== VSCODE ====="
-	code --update-extensions
+	timeout 30s code --update-extensions
 	@echo
 	@echo "================================================================"
 	@echo
