@@ -1,0 +1,63 @@
+version: '0.5'
+is_strict: true
+
+processes:
+  brew-update:
+    description: Update Homebrew metadata
+    command: brew update
+
+  brew-upgrade:
+    description: Upgrade Homebrew packages
+    command: brew upgrade --greedy
+    depends_on:
+      brew-update:
+        condition: process_completed_successfully
+
+  npm-install:
+    description: Install latest npm
+    command: npm install -g npm@latest
+    depends_on:
+      brew-upgrade:
+        condition: process_completed_successfully
+
+  npm-update:
+    description: Update global npm packages
+    command: npm update -g
+    depends_on:
+      npm-install:
+        condition: process_completed_successfully
+
+  bun-upgrade:
+    description: Upgrade Bun
+    command: bun upgrade
+    depends_on:
+      brew-upgrade:
+        condition: process_completed_successfully
+
+  bun-global-update:
+    description: Update global Bun packages
+    command: bun update -g --latest
+    depends_on:
+      bun-upgrade:
+        condition: process_completed_successfully
+
+  pnpm-update:
+    description: Update global pnpm packages
+    command: pnpm update -g --latest
+    depends_on:
+      brew-upgrade:
+        condition: process_completed_successfully
+
+  neovim-update:
+    description: Update Neovim plugins
+    command: nvim --headless "+Lazy! update" +qa
+    depends_on:
+      brew-upgrade:
+        condition: process_completed_successfully
+
+  vscode-update:
+    description: Update VS Code extensions
+    command: code --update-extensions
+    depends_on:
+      brew-upgrade:
+        condition: process_completed_successfully
