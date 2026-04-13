@@ -49,13 +49,13 @@ tasks:
     internal: true
     desc: Install latest npm
     cmds:
-      - npm install -g npm@latest
+      - gtimeout 60s npm install -g npm@latest
 
   npm-update:
     internal: true
     desc: Update global npm packages
     cmds:
-      - npm update -g
+      - gtimeout 60s npm update -g
 
   bun-flow:
     internal: true
@@ -67,28 +67,28 @@ tasks:
     internal: true
     desc: Upgrade Bun
     cmds:
-      - bun upgrade
+      - gtimeout 60s bun upgrade
 
   bun-global-update:
     internal: true
     desc: Update global Bun packages
     cmds:
-      - bun update -g --latest
+      - gtimeout 60s bun update -g --latest
 
   pnpm-update:
     internal: true
     desc: Update global pnpm packages
     cmds:
-      - pnpm update -g --latest
+      - gtimeout 60s pnpm update -g --latest
 
   neovim-update:
     internal: true
     desc: Update Neovim plugins
     cmds:
-      - 'nvim --headless "+Lazy! update" +qa'
+      - 'gtimeout 60s nvim --headless "+Lazy! update" +qa'
 
   vscode-update:
     internal: true
     desc: Update VS Code extensions
     cmds:
-      - code --update-extensions
+      - gtimeout 60s code --update-extensions
