@@ -6,10 +6,22 @@ tasks:
     preconditions:
       - sh: '[ "$(uname -s)" = Darwin ]'
         msg: setup-macos only runs on macOS
+      - sh: command -v go
+        msg: go is required to install httpstat
     cmds:
       - task: delta-install
       - task: difftastic-install
       - task: hunkdiff-install
+      - task: lazygit-install
+      - task: ripgrep-install
+      - task: btop-install
+      - task: ctop-install
+      - task: iperf3-install
+      - task: tmux-install
+      - task: stow-install
+      - task: httping-install
+      - task: kubectl-install
+      - task: httpstat-install
 
   delta-install:
     internal: true
@@ -28,3 +40,63 @@ tasks:
     desc: Install hunkdiff
     cmds:
       - npm i -g hunkdiff
+
+  lazygit-install:
+    internal: true
+    desc: Install lazygit
+    cmds:
+      - brew install lazygit
+
+  ripgrep-install:
+    internal: true
+    desc: Install ripgrep
+    cmds:
+      - brew install ripgrep
+
+  btop-install:
+    internal: true
+    desc: Install btop
+    cmds:
+      - brew install btop
+
+  ctop-install:
+    internal: true
+    desc: Install ctop
+    cmds:
+      - brew install ctop
+
+  iperf3-install:
+    internal: true
+    desc: Install iperf3
+    cmds:
+      - brew install iperf3
+
+  tmux-install:
+    internal: true
+    desc: Install tmux
+    cmds:
+      - brew install tmux
+
+  stow-install:
+    internal: true
+    desc: Install stow
+    cmds:
+      - brew install stow
+
+  httping-install:
+    internal: true
+    desc: Install httping
+    cmds:
+      - brew install httping
+
+  kubectl-install:
+    internal: true
+    desc: Install kubectl
+    cmds:
+      - brew install kubectl
+
+  httpstat-install:
+    internal: true
+    desc: Install httpstat
+    cmds:
+      - go install github.com/davecheney/httpstat@latest
