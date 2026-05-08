@@ -20,12 +20,12 @@ tasks:
 
   post-upgrade:
     internal: true
-    deps:
-      - npm-flow
-      - bun-flow
-      - pnpm-update
-      - neovim-update
-      - vscode-update
+    cmds:
+      - task: npm-flow
+      - task: bun-flow
+      - task: pnpm-update
+      - task: neovim-update
+      - task: vscode-update
 
   homebrew-flow:
     internal: true

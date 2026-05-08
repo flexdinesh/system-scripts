@@ -20,13 +20,13 @@ tasks:
 
   post-upgrade:
     internal: true
-    deps:
-      - flatpak-update
-      - npm-flow
-      - bun-flow
-      - pnpm-update
-      - neovim-update
-      - vscode-update
+    cmds:
+      - task: flatpak-update
+      - task: npm-flow
+      - task: bun-flow
+      - task: pnpm-update
+      - task: neovim-update
+      - task: vscode-update
 
   pacman-update:
     internal: true
