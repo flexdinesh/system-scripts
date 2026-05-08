@@ -1,0 +1,37 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Set up Arch dependencies
+    preconditions:
+      - sh: '[ -f /etc/arch-release ]'
+        msg: setup-arch only runs on Arch Linux
+    cmds:
+      - task: sudo-auth
+      - task: delta-install
+      - task: difftastic-install
+      - task: hunkdiff-install
+
+  sudo-auth:
+    internal: true
+    desc: Cache sudo credentials
+    cmds:
+      - sudo -v
+
+  delta-install:
+    internal: true
+    desc: Install delta
+    cmds:
+      - sudo pacman -S --noconfirm git-delta
+
+  difftastic-install:
+    internal: true
+    desc: Install difftastic
+    cmds:
+      - sudo pacman -S --noconfirm difftastic
+
+  hunkdiff-install:
+    internal: true
+    desc: Install hunkdiff
+    cmds:
+      - npm i -g hunkdiff

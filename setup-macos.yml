@@ -1,0 +1,30 @@
+version: '3'
+
+tasks:
+  default:
+    desc: Set up macOS dependencies
+    preconditions:
+      - sh: '[ "$(uname -s)" = Darwin ]'
+        msg: setup-macos only runs on macOS
+    cmds:
+      - task: delta-install
+      - task: difftastic-install
+      - task: hunkdiff-install
+
+  delta-install:
+    internal: true
+    desc: Install delta
+    cmds:
+      - brew install git-delta
+
+  difftastic-install:
+    internal: true
+    desc: Install difftastic
+    cmds:
+      - brew install difftastic
+
+  hunkdiff-install:
+    internal: true
+    desc: Install hunkdiff
+    cmds:
+      - npm i -g hunkdiff
