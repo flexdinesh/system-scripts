@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 tasks:
   default:
@@ -17,6 +17,7 @@ tasks:
       - task: btop-install
       - task: ctop-install
       - task: iperf3-install
+      - task: 1password-cli-install
       - task: tmux-install
       - task: stow-install
       - task: httping-install
@@ -67,9 +68,14 @@ tasks:
 
   iperf3-install:
     internal: true
-    desc: Install iperf3
+    desc: install iperf3
     cmds:
       - brew install iperf3
+  1password-cli-install:
+    internal: true
+    desc: install 1Password CLI
+    cmds:
+      - brew install 1password-cli
 
   tmux-install:
     internal: true
