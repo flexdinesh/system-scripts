@@ -24,6 +24,7 @@ tasks:
       - task: httping-install
       - task: kubectl-install
       - task: httpstat-install
+      - task: tree-install
 
   sudo-auth:
     internal: true
@@ -114,3 +115,9 @@ tasks:
     desc: Install httpstat
     cmds:
       - go install github.com/davecheney/httpstat@latest
+
+  tree-install:
+    internal: true
+    desc: Install tree
+    cmds:
+      - sudo pacman -S --noconfirm tree
