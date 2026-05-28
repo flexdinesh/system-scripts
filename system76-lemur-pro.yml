@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 tasks:
   default:
@@ -22,11 +22,7 @@ tasks:
     internal: true
     cmds:
       - task: flatpak-update
-      - task: npm-flow
-      - task: bun-flow
-      - task: pnpm-update
       - task: neovim-update
-      - task: vscode-update
 
   pacman-update:
     internal: true
@@ -50,62 +46,6 @@ tasks:
     cmds:
       - sudo flatpak update -y
 
-  npm-flow:
-    internal: true
-    cmds:
-      - task: npm-install
-        ignore_error: true
-      - task: npm-update
-        ignore_error: true
-
-  npm-install:
-    internal: true
-    desc: Install latest npm
-    ignore_error: true
-    timeout: 60s
-    cmds:
-      - npm install -g npm@latest
-
-  npm-update:
-    internal: true
-    desc: Update global npm packages
-    ignore_error: true
-    timeout: 60s
-    cmds:
-      - npm update -g
-
-  bun-flow:
-    internal: true
-    cmds:
-      - task: bun-upgrade
-        ignore_error: true
-      - task: bun-global-update
-        ignore_error: true
-
-  bun-upgrade:
-    internal: true
-    desc: Upgrade Bun
-    ignore_error: true
-    timeout: 60s
-    cmds:
-      - bun upgrade
-
-  bun-global-update:
-    internal: true
-    desc: Update global Bun packages
-    ignore_error: true
-    timeout: 60s
-    cmds:
-      - bun update -g --latest
-
-  pnpm-update:
-    internal: true
-    desc: Update global pnpm packages
-    ignore_error: true
-    timeout: 60s
-    cmds:
-      - pnpm update -g --latest
-
   neovim-update:
     internal: true
     desc: Update Neovim plugins
@@ -113,11 +53,3 @@ tasks:
     timeout: 60s
     cmds:
       - 'nvim --headless "+Lazy! update" +qa'
-
-  vscode-update:
-    internal: true
-    desc: Update VS Code extensions
-    ignore_error: true
-    timeout: 60s
-    cmds:
-      - code --update-extensions
