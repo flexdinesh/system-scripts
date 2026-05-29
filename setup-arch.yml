@@ -25,6 +25,7 @@ tasks:
       - task: kubectl-install
       - task: httpstat-install
       - task: tree-install
+      - task: fd-install
 
   sudo-auth:
     internal: true
@@ -121,3 +122,9 @@ tasks:
     desc: Install tree
     cmds:
       - sudo pacman -S --noconfirm tree
+
+  fd-install:
+    internal: true
+    desc: Install fd
+    cmds:
+      - sudo pacman -S --noconfirm fd

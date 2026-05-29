@@ -24,6 +24,7 @@ tasks:
       - task: kubectl-install
       - task: httpstat-install
       - task: tree-install
+      - task: fd-install
 
   delta-install:
     internal: true
@@ -113,3 +114,9 @@ tasks:
     desc: Install tree
     cmds:
       - brew install tree
+
+  fd-install:
+    internal: true
+    desc: Install fd
+    cmds:
+      - brew install fd
