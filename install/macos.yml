@@ -25,6 +25,7 @@ tasks:
       - task: httpstat-install
       - task: tree-install
       - task: fd-install
+      - task: chezmoi-install
 
   delta-install:
     internal: true
@@ -120,3 +121,9 @@ tasks:
     desc: Install fd
     cmds:
       - brew install fd
+
+  chezmoi-install:
+    internal: true
+    desc: Install chezmoi
+    cmds:
+      - brew install chezmoi

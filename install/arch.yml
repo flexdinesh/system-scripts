@@ -26,6 +26,7 @@ tasks:
       - task: httpstat-install
       - task: tree-install
       - task: fd-install
+      - task: chezmoi-install
 
   sudo-auth:
     internal: true
@@ -128,3 +129,9 @@ tasks:
     desc: Install fd
     cmds:
       - sudo pacman -S --noconfirm fd
+
+  chezmoi-install:
+    internal: true
+    desc: Install chezmoi
+    cmds:
+      - sudo pacman -S --noconfirm chezmoi
