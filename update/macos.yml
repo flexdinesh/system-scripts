@@ -2,10 +2,10 @@ version: "3"
 
 tasks:
   default:
-    desc: Update macbook-m3-pro packages and tools
+    desc: Update macOS packages and tools
     preconditions:
       - sh: '[ "$(uname -s)" = Darwin ]'
-        msg: macbook-m3-pro only runs on macOS
+        msg: update/macos only runs on macOS
     cmds:
       - task: sudo-auth
       - task: homebrew-flow

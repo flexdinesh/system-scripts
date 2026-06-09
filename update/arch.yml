@@ -2,10 +2,10 @@ version: "3"
 
 tasks:
   default:
-    desc: Update system76-lemur-pro packages and tools
+    desc: Update Arch packages and tools
     preconditions:
       - sh: '[ "$(uname -s)" = Linux ]'
-        msg: system76-lemur-pro only runs on Linux
+        msg: update/arch only runs on Linux
     cmds:
       - task: sudo-auth
       - task: pacman-update

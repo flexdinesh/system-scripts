@@ -2,13 +2,14 @@ version: "3"
 
 tasks:
   default:
-    desc: Set up macOS dependencies
+    desc: Set up Arch dependencies
     preconditions:
-      - sh: '[ "$(uname -s)" = Darwin ]'
-        msg: setup-macos only runs on macOS
+      - sh: "[ -f /etc/arch-release ]"
+        msg: install/arch only runs on Arch Linux
       - sh: command -v go
         msg: go is required to install httpstat
     cmds:
+      - task: sudo-auth
       - task: delta-install
       - task: difftastic-install
       - task: hunkdiff-install
@@ -26,17 +27,23 @@ tasks:
       - task: tree-install
       - task: fd-install
 
+  sudo-auth:
+    internal: true
+    desc: Cache sudo credentials
+    cmds:
+      - sudo -v
+
   delta-install:
     internal: true
     desc: Install delta
     cmds:
-      - brew install git-delta
+      - sudo pacman -S --noconfirm git-delta
 
   difftastic-install:
     internal: true
     desc: Install difftastic
     cmds:
-      - brew install difftastic
+      - sudo pacman -S --noconfirm difftastic
 
   hunkdiff-install:
     internal: true
@@ -48,60 +55,61 @@ tasks:
     internal: true
     desc: Install lazygit
     cmds:
-      - brew install lazygit
+      - sudo pacman -S --noconfirm lazygit
 
   ripgrep-install:
     internal: true
     desc: Install ripgrep
     cmds:
-      - brew install ripgrep
+      - sudo pacman -S --noconfirm ripgrep
 
   btop-install:
     internal: true
     desc: Install btop
     cmds:
-      - brew install btop
+      - sudo pacman -S --noconfirm btop
 
   ctop-install:
     internal: true
     desc: Install ctop
     cmds:
-      - brew install ctop
+      - sudo pacman -S --noconfirm ctop
 
   iperf3-install:
     internal: true
-    desc: install iperf3
+    desc: Install iperf3
     cmds:
-      - brew install iperf3
+      - paru -S --noconfirm iperf3
+
   1password-cli-install:
     internal: true
-    desc: install 1Password CLI
+    desc: Install 1Password CLI
     cmds:
-      - brew install 1password-cli
+      - paru -S 1password-cli
 
   tmux-install:
     internal: true
     desc: Install tmux
     cmds:
-      - brew install tmux
+      - sudo pacman -S --noconfirm tmux
 
   stow-install:
     internal: true
     desc: Install stow
     cmds:
-      - brew install stow
+      - sudo pacman -S --noconfirm stow
 
   httping-install:
     internal: true
     desc: Install httping
     cmds:
-      - brew install httping
+      - sudo pacman -S --noconfirm httping
 
   kubectl-install:
     internal: true
     desc: Install kubectl
     cmds:
-      - brew install kubectl
+      - sudo pacman -S --noconfirm kubectl
 
   httpstat-install:
     internal: true
@@ -113,10 +121,10 @@ tasks:
     internal: true
     desc: Install tree
     cmds:
-      - brew install tree
+      - sudo pacman -S --noconfirm tree
 
   fd-install:
     internal: true
     desc: Install fd
     cmds:
-      - brew install fd
+      - sudo pacman -S --noconfirm fd

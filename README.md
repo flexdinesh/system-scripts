@@ -15,14 +15,14 @@ Machine setup and update flows via `go-task/task`.
 
 ## Setup
 
-- list macOS setup tasks: `task --taskfile setup-macos.yml --list`
-- run macOS setup: `task --taskfile setup-macos.yml`
-- list Arch setup tasks: `task --taskfile setup-arch.yml --list`
-- run Arch setup: `task --taskfile setup-arch.yml`
+- list macOS setup tasks: `task --taskfile install/macos.yml --list`
+- run macOS setup: `task --taskfile install/macos.yml`
+- list Arch setup tasks: `task --taskfile install/arch.yml --list`
+- run Arch setup: `task --taskfile install/arch.yml`
 
 ## Run updates
 
-- list macbook tasks: `task --taskfile macbook-m3-pro.yml --list`
-- run macbook: `task --taskfile macbook-m3-pro.yml`
-- list system76 tasks: `task --taskfile system76-lemur-pro.yml --list`
-- run system76: `task --taskfile system76-lemur-pro.yml`
+- list macOS update tasks: `task --taskfile update/macos.yml --list`
+- run macOS updates: `task --taskfile update/macos.yml`
+- list Arch update tasks: `task --taskfile update/arch.yml --list`
+- run Arch updates: `task --taskfile update/arch.yml`
