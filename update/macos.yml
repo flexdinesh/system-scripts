@@ -42,7 +42,7 @@ tasks:
     desc: Upgrade Homebrew packages
     timeout: 30m
     cmds:
-      - brew upgrade --greedy
+      - brew upgrade --greedy --no-ask
 
   neovim-update:
     internal: true
