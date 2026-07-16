@@ -27,6 +27,7 @@ tasks:
       - task: tree-install
       - task: fd-install
       - task: chezmoi-install
+      - task: aws-cli-install
 
   sudo-auth:
     internal: true
@@ -135,3 +136,9 @@ tasks:
     desc: Install chezmoi
     cmds:
       - sudo pacman -S --noconfirm chezmoi
+
+  aws-cli-install:
+    internal: true
+    desc: Install AWS cli
+    cmds:
+      - sudo pacman -S --noconfirm aws-cli
