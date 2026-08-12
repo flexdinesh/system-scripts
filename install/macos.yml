@@ -46,7 +46,7 @@ tasks:
     internal: true
     desc: Install hunkdiff
     cmds:
-      - npm i -g hunkdiff
+      - pnpm i -g hunkdiff
 
   lazygit-install:
     internal: true
