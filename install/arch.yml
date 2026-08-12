@@ -28,6 +28,9 @@ tasks:
       - task: fd-install
       - task: chezmoi-install
       - task: aws-cli-install
+      - task: cargo-install
+      - task: mdcat-install
+      - task: lumen-install
 
   sudo-auth:
     internal: true
@@ -142,3 +145,21 @@ tasks:
     desc: Install AWS cli
     cmds:
       - sudo pacman -S --noconfirm aws-cli
+
+  cargo-install:
+    internal: true
+    desc: Install Cargo
+    cmds:
+      - sudo pacman -S --noconfirm rust
+
+  mdcat-install:
+    internal: true
+    desc: Install mdcat
+    cmds:
+      - paru -S --noconfirm mdcat
+
+  lumen-install:
+    internal: true
+    desc: Install lumen
+    cmds:
+      - paru -S --noconfirm lumen-bin

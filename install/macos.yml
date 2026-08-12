@@ -26,6 +26,9 @@ tasks:
       - task: tree-install
       - task: fd-install
       - task: chezmoi-install
+      - task: cargo-install
+      - task: mdcat-install
+      - task: lumen-install
 
   delta-install:
     internal: true
@@ -127,3 +130,21 @@ tasks:
     desc: Install chezmoi
     cmds:
       - brew install chezmoi
+
+  cargo-install:
+    internal: true
+    desc: Install Cargo
+    cmds:
+      - brew install rust
+
+  mdcat-install:
+    internal: true
+    desc: Install mdcat
+    cmds:
+      - brew install mdcat
+
+  lumen-install:
+    internal: true
+    desc: Install lumen
+    cmds:
+      - brew install jnsahaj/lumen/lumen
