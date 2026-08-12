@@ -18,12 +18,6 @@ tasks:
     cmds:
       - sudo -v
 
-  post-upgrade:
-    internal: true
-    cmds:
-      - task: flatpak-update
-      - task: neovim-update
-
   pacman-update:
     internal: true
     desc: Update pacman packages
@@ -37,6 +31,13 @@ tasks:
     timeout: 60s
     cmds:
       - paru -Syu --noconfirm
+
+  post-upgrade:
+    internal: true
+    cmds:
+      - task: flatpak-update
+      - task: neovim-update
+      - task: pnpm-global-packages-update
 
   flatpak-update:
     internal: true
@@ -53,3 +54,11 @@ tasks:
     timeout: 60s
     cmds:
       - 'nvim --headless "+Lazy! update" +qa'
+
+  pnpm-global-packages-update:
+    internal: true
+    desc: Update global pnpm packages
+    ignore_error: true
+    timeout: 60s
+    cmds:
+      - pnpm update -g --latest
