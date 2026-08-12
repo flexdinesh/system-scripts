@@ -34,13 +34,13 @@ tasks:
     internal: true
     desc: Install delta
     cmds:
-      - brew install git-delta
+      - brew install --no-ask git-delta
 
   difftastic-install:
     internal: true
     desc: Install difftastic
     cmds:
-      - brew install difftastic
+      - brew install --no-ask difftastic
 
   hunkdiff-install:
     internal: true
@@ -52,60 +52,60 @@ tasks:
     internal: true
     desc: Install lazygit
     cmds:
-      - brew install lazygit
+      - brew install --no-ask lazygit
 
   ripgrep-install:
     internal: true
     desc: Install ripgrep
     cmds:
-      - brew install ripgrep
+      - brew install --no-ask ripgrep
 
   btop-install:
     internal: true
     desc: Install btop
     cmds:
-      - brew install btop
+      - brew install --no-ask btop
 
   ctop-install:
     internal: true
     desc: Install ctop
     cmds:
-      - brew install ctop
+      - brew install --no-ask ctop
 
   iperf3-install:
     internal: true
     desc: install iperf3
     cmds:
-      - brew install iperf3
+      - brew install --no-ask iperf3
   1password-cli-install:
     internal: true
     desc: install 1Password CLI
     cmds:
-      - brew install 1password-cli
+      - brew install --no-ask 1password-cli
 
   tmux-install:
     internal: true
     desc: Install tmux
     cmds:
-      - brew install tmux
+      - brew install --no-ask tmux
 
   stow-install:
     internal: true
     desc: Install stow
     cmds:
-      - brew install stow
+      - brew install --no-ask stow
 
   httping-install:
     internal: true
     desc: Install httping
     cmds:
-      - brew install httping
+      - brew install --no-ask httping
 
   kubectl-install:
     internal: true
     desc: Install kubectl
     cmds:
-      - brew install kubectl
+      - brew install --no-ask kubectl
 
   httpstat-install:
     internal: true
@@ -117,34 +117,34 @@ tasks:
     internal: true
     desc: Install tree
     cmds:
-      - brew install tree
+      - brew install --no-ask tree
 
   fd-install:
     internal: true
     desc: Install fd
     cmds:
-      - brew install fd
+      - brew install --no-ask fd
 
   chezmoi-install:
     internal: true
     desc: Install chezmoi
     cmds:
-      - brew install chezmoi
+      - brew install --no-ask chezmoi
 
   cargo-install:
     internal: true
     desc: Install Cargo
     cmds:
-      - brew install rust
+      - brew install --no-ask rust
 
   mdcat-install:
     internal: true
     desc: Install mdcat
     cmds:
-      - brew install mdcat
+      - brew install --no-ask mdcat
 
   lumen-install:
     internal: true
     desc: Install lumen
     cmds:
-      - brew install jnsahaj/lumen/lumen
+      - brew install --no-ask jnsahaj/lumen/lumen
