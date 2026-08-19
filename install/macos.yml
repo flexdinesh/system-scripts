@@ -29,6 +29,7 @@ tasks:
       - task: cargo-install
       - task: mdcat-install
       - task: lumen-install
+      - task: neovim-install
 
   delta-install:
     internal: true
@@ -148,3 +149,9 @@ tasks:
     desc: Install lumen
     cmds:
       - brew install --no-ask jnsahaj/lumen/lumen
+
+  neovim-install:
+    internal: true
+    desc: Install Neovim
+    cmds:
+      - brew install --no-ask neovim
