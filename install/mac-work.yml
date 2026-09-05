@@ -2,10 +2,10 @@ version: "3"
 
 tasks:
   default:
-    desc: Set up macOS dependencies
+    desc: Set up mac-work dependencies
     preconditions:
       - sh: '[ "$(uname -s)" = Darwin ]'
-        msg: install/macos only runs on macOS
+        msg: install/mac-work only runs on macOS
       - sh: command -v go
         msg: go is required to install httpstat
     cmds:
@@ -25,7 +25,6 @@ tasks:
       - task: httpstat-install
       - task: tree-install
       - task: fd-install
-      - task: chezmoi-install
       - task: cargo-install
       - task: mdcat-install
       - task: lumen-install
@@ -125,12 +124,6 @@ tasks:
     desc: Install fd
     cmds:
       - brew install --no-ask fd
-
-  chezmoi-install:
-    internal: true
-    desc: Install chezmoi
-    cmds:
-      - brew install --no-ask chezmoi
 
   cargo-install:
     internal: true

@@ -2,10 +2,10 @@ version: "3"
 
 tasks:
   default:
-    desc: Update macOS packages and tools
+    desc: Update mac-work packages and tools
     preconditions:
       - sh: '[ "$(uname -s)" = Darwin ]'
-        msg: update/macos only runs on macOS
+        msg: update/mac-work only runs on macOS
     cmds:
       - task: sudo-auth
       - task: homebrew-flow

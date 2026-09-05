@@ -1,0 +1,180 @@
+version: "3"
+
+tasks:
+  default:
+    desc: Set up mac-neo dependencies
+    preconditions:
+      - sh: '[ "$(uname -s)" = Darwin ]'
+        msg: install/mac-neo only runs on macOS
+      - sh: command -v go
+        msg: go is required to install httpstat
+      - sh: command -v pnpm
+        msg: pnpm is required to install global packages
+    cmds:
+      - task: fish-install
+      - task: fzf-install
+      - task: starship-install
+      - task: delta-install
+      - task: difftastic-install
+      - task: lazygit-install
+      - task: ripgrep-install
+      - task: btop-install
+      - task: ctop-install
+      - task: iperf3-install
+      - task: 1password-cli-install
+      - task: tmux-install
+      - task: stow-install
+      - task: httping-install
+      - task: kubectl-install
+      - task: httpstat-install
+      - task: tree-install
+      - task: fd-install
+      - task: cargo-install
+      - task: mdcat-install
+      - task: lumen-install
+      - task: neovim-install
+      - task: hunkdiff-install
+      - task: pi-agent-install
+
+  fish-install:
+    internal: true
+    desc: Install fish shell
+    cmds:
+      - brew install --no-ask fish
+  
+  fzf-install:
+    internal: true
+    desc: Install fzf
+    cmds:
+      - brew install --no-ask fzf
+
+  starship-install:
+    internal: true
+    desc: Install starship
+    cmds:
+      - brew install --no-ask starship
+
+  delta-install:
+    internal: true
+    desc: Install delta
+    cmds:
+      - brew install --no-ask git-delta
+
+  difftastic-install:
+    internal: true
+    desc: Install difftastic
+    cmds:
+      - brew install --no-ask difftastic
+
+  lazygit-install:
+    internal: true
+    desc: Install lazygit
+    cmds:
+      - brew install --no-ask lazygit
+
+  ripgrep-install:
+    internal: true
+    desc: Install ripgrep
+    cmds:
+      - brew install --no-ask ripgrep
+
+  btop-install:
+    internal: true
+    desc: Install btop
+    cmds:
+      - brew install --no-ask btop
+
+  ctop-install:
+    internal: true
+    desc: Install ctop
+    cmds:
+      - brew install --no-ask ctop
+
+  iperf3-install:
+    internal: true
+    desc: install iperf3
+    cmds:
+      - brew install --no-ask iperf3
+  1password-cli-install:
+    internal: true
+    desc: install 1Password CLI
+    cmds:
+      - brew install --no-ask 1password-cli
+
+  tmux-install:
+    internal: true
+    desc: Install tmux
+    cmds:
+      - brew install --no-ask tmux
+
+  stow-install:
+    internal: true
+    desc: Install stow
+    cmds:
+      - brew install --no-ask stow
+
+  httping-install:
+    internal: true
+    desc: Install httping
+    cmds:
+      - brew install --no-ask httping
+
+  kubectl-install:
+    internal: true
+    desc: Install kubectl
+    cmds:
+      - brew install --no-ask kubectl
+
+  httpstat-install:
+    internal: true
+    desc: Install httpstat
+    cmds:
+      - go install github.com/davecheney/httpstat@latest
+
+  tree-install:
+    internal: true
+    desc: Install tree
+    cmds:
+      - brew install --no-ask tree
+
+  fd-install:
+    internal: true
+    desc: Install fd
+    cmds:
+      - brew install --no-ask fd
+
+  cargo-install:
+    internal: true
+    desc: Install Cargo
+    cmds:
+      - brew install --no-ask rust
+
+  mdcat-install:
+    internal: true
+    desc: Install mdcat
+    cmds:
+      - brew install --no-ask mdcat
+
+  lumen-install:
+    internal: true
+    desc: Install lumen
+    cmds:
+      - brew install --no-ask jnsahaj/lumen/lumen
+
+  neovim-install:
+    internal: true
+    desc: Install Neovim
+    cmds:
+      - brew install --no-ask neovim
+  
+  hunkdiff-install:
+    internal: true
+    desc: Install hunkdiff
+    cmds:
+      - pnpm i -g hunkdiff
+  
+  pi-agent-install:
+    internal: true
+    desc: Install pi coding agent
+    cmds:
+      - pnpm i -g @earendil-works/pi-coding-agent
