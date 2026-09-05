@@ -29,7 +29,6 @@ tasks:
     internal: true
     cmds:
       - task: neovim-update
-      - task: pnpm-global-packages-update
 
   brew-update:
     internal: true
@@ -53,10 +52,3 @@ tasks:
     cmds:
       - 'nvim --headless "+Lazy! update" +qa'
 
-  pnpm-global-packages-update:
-    internal: true
-    desc: Update global pnpm packages
-    ignore_error: true
-    timeout: 60s
-    cmds:
-      - pnpm update -g --latest
