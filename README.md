@@ -17,18 +17,8 @@ Machine setup and update flows via `go-task/task`.
 
 ## Setup
 
-- list mac-work setup tasks: `task --taskfile install/mac-work.yml --list`
-- run mac-work setup: `task --taskfile install/mac-work.yml`
-- list mac-neo setup tasks: `task --taskfile install/mac-neo.yml --list`
-- run mac-neo setup: `task --taskfile install/mac-neo.yml`
-- list arch setup tasks: `task --taskfile install/arch.yml --list`
-- run arch setup: `task --taskfile install/arch.yml`
+Use one of the files.
 
-## Run updates
-
-- list mac-work update tasks: `task --taskfile update/mac-work.yml --list`
-- run mac-work updates: `task --taskfile update/mac-work.yml`
-- list mac-neo update tasks: `task --taskfile update/mac-neo.yml --list`
-- run mac-neo updates: `task --taskfile update/mac-neo.yml`
-- list Arch update tasks: `task --taskfile update/arch.yml --list`
-- run Arch updates: `task --taskfile update/arch.yml`
+- list install tasks example: `task --taskfile install/mac-work.yml --list`
+- run install tasks example: `task --taskfile install/mac-work.yml`
+- run update tasks example: `task --taskfile update/mac-work.yml`
