@@ -36,7 +36,16 @@ tasks:
     internal: true
     cmds:
       - task: flatpak-update
+      - task: pnpm-update
       - task: neovim-update
+
+  pnpm-update:
+    internal: true
+    desc: Update global pnpm packages
+    ignore_error: true
+    timeout: 5m
+    cmds:
+      - pnpm update -g --latest
 
   flatpak-update:
     internal: true

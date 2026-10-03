@@ -6,14 +6,14 @@ tasks:
     preconditions:
       - sh: "[ -f /etc/arch-release ]"
         msg: install/arch only runs on Arch Linux
-      - sh: command -v go
-        msg: go is required to install httpstat
     cmds:
       - task: sudo-auth
+      - task: go-install
+      - task: go-task-install
       - task: delta-install
       - task: difftastic-install
-      - task: hunkdiff-install
       - task: lazygit-install
+      - task: worktrunk-install
       - task: ripgrep-install
       - task: btop-install
       - task: ctop-install
@@ -26,17 +26,37 @@ tasks:
       - task: httpstat-install
       - task: tree-install
       - task: fd-install
-      - task: chezmoi-install
       - task: aws-cli-install
       - task: cargo-install
-      - task: mdcat-install
       - task: lumen-install
+      - task: manual-setup-notes
+
+  manual-setup-notes:
+    internal: true
+    desc: Print manual setup notes
+    silent: true
+    cmds:
+      - |
+        echo 'Manual setup required:'
+        echo 'After fish shell is set up, open fish and run: wt config shell install'
 
   sudo-auth:
     internal: true
     desc: Cache sudo credentials
     cmds:
       - sudo -v
+
+  go-install:
+    internal: true
+    desc: Install Go
+    cmds:
+      - sudo pacman -S --noconfirm go
+
+  go-task-install:
+    internal: true
+    desc: Install go-task
+    cmds:
+      - sudo pacman -S --noconfirm go-task
 
   delta-install:
     internal: true
@@ -50,17 +70,17 @@ tasks:
     cmds:
       - sudo pacman -S --noconfirm difftastic
 
-  hunkdiff-install:
-    internal: true
-    desc: Install hunkdiff
-    cmds:
-      - pnpm i -g hunkdiff
-
   lazygit-install:
     internal: true
     desc: Install lazygit
     cmds:
       - sudo pacman -S --noconfirm lazygit
+
+  worktrunk-install:
+    internal: true
+    desc: Install Worktrunk
+    cmds:
+      - sudo pacman -S --noconfirm worktrunk
 
   ripgrep-install:
     internal: true
@@ -134,12 +154,6 @@ tasks:
     cmds:
       - sudo pacman -S --noconfirm fd
 
-  chezmoi-install:
-    internal: true
-    desc: Install chezmoi
-    cmds:
-      - sudo pacman -S --noconfirm chezmoi
-
   aws-cli-install:
     internal: true
     desc: Install AWS cli
@@ -151,12 +165,6 @@ tasks:
     desc: Install Cargo
     cmds:
       - sudo pacman -S --noconfirm rust
-
-  mdcat-install:
-    internal: true
-    desc: Install mdcat
-    cmds:
-      - paru -S --noconfirm mdcat
 
   lumen-install:
     internal: true

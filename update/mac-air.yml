@@ -28,7 +28,16 @@ tasks:
   post-upgrade:
     internal: true
     cmds:
+      - task: pnpm-update
       - task: neovim-update
+
+  pnpm-update:
+    internal: true
+    desc: Update global pnpm packages
+    ignore_error: true
+    timeout: 5m
+    cmds:
+      - pnpm update -g --latest
 
   brew-update:
     internal: true

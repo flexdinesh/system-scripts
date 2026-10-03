@@ -6,17 +6,18 @@ tasks:
     preconditions:
       - sh: '[ "$(uname -s)" = Darwin ]'
         msg: install/mac-neo only runs on macOS
-      - sh: command -v go
-        msg: go is required to install httpstat
       - sh: command -v pnpm
         msg: pnpm is required to install global packages
     cmds:
+      - task: go-install
+      - task: go-task-install
       - task: fish-install
       - task: fzf-install
       - task: starship-install
       - task: delta-install
       - task: difftastic-install
       - task: lazygit-install
+      - task: worktrunk-install
       - task: ripgrep-install
       - task: btop-install
       - task: ctop-install
@@ -30,13 +31,33 @@ tasks:
       - task: tree-install
       - task: fd-install
       - task: cargo-install
-      - task: mdcat-install
       - task: lumen-install
       - task: neovim-install
-      - task: hunkdiff-install
       - task: pi-agent-install
       - task: opencode-install
       - task: codex-install
+      - task: manual-setup-notes
+
+  manual-setup-notes:
+    internal: true
+    desc: Print manual setup notes
+    silent: true
+    cmds:
+      - |
+        echo 'Manual setup required:'
+        echo 'After fish shell is set up, open fish and run: wt config shell install'
+
+  go-install:
+    internal: true
+    desc: Install Go
+    cmds:
+      - brew install --no-ask go
+
+  go-task-install:
+    internal: true
+    desc: Install go-task
+    cmds:
+      - brew install --no-ask go-task
 
   fish-install:
     internal: true
@@ -73,6 +94,12 @@ tasks:
     desc: Install lazygit
     cmds:
       - brew install --no-ask lazygit
+
+  worktrunk-install:
+    internal: true
+    desc: Install Worktrunk
+    cmds:
+      - brew install --no-ask worktrunk
 
   ripgrep-install:
     internal: true
@@ -151,12 +178,6 @@ tasks:
     cmds:
       - brew install --no-ask rust
 
-  mdcat-install:
-    internal: true
-    desc: Install mdcat
-    cmds:
-      - brew install --no-ask mdcat
-
   lumen-install:
     internal: true
     desc: Install lumen
@@ -168,12 +189,6 @@ tasks:
     desc: Install Neovim
     cmds:
       - brew install --no-ask neovim
-  
-  hunkdiff-install:
-    internal: true
-    desc: Install hunkdiff
-    cmds:
-      - pnpm i -g hunkdiff@beta
   
   pi-agent-install:
     internal: true

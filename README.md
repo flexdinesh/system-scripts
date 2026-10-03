@@ -4,10 +4,11 @@ Machine setup and update flows via `go-task/task`.
 
 ## Prereqs
 
-- install `task` on each machine
+- bootstrap `task` once on each machine to run the taskfiles
   - mac-work: `brew install go-task`
   - mac-neo: `brew install go-task`
   - arch: `sudo pacman -S go-task`
+- setup taskfiles also install `go` and `go-task`; Go need not be preinstalled
 - setup taskfiles expect their platform package manager and `npm` to already exist
   - mac-work: `brew`, `npm`
   - mac-neo: `brew`, `npm`

@@ -6,13 +6,13 @@ tasks:
     preconditions:
       - sh: '[ "$(uname -s)" = Darwin ]'
         msg: install/mac-work only runs on macOS
-      - sh: command -v go
-        msg: go is required to install httpstat
     cmds:
+      - task: go-install
+      - task: go-task-install
       - task: delta-install
       - task: difftastic-install
-      - task: hunkdiff-install
       - task: lazygit-install
+      - task: worktrunk-install
       - task: ripgrep-install
       - task: btop-install
       - task: ctop-install
@@ -26,9 +26,30 @@ tasks:
       - task: tree-install
       - task: fd-install
       - task: cargo-install
-      - task: mdcat-install
       - task: lumen-install
       - task: neovim-install
+      - task: manual-setup-notes
+
+  manual-setup-notes:
+    internal: true
+    desc: Print manual setup notes
+    silent: true
+    cmds:
+      - |
+        echo 'Manual setup required:'
+        echo 'After fish shell is set up, open fish and run: wt config shell install'
+
+  go-install:
+    internal: true
+    desc: Install Go
+    cmds:
+      - brew install --no-ask go
+
+  go-task-install:
+    internal: true
+    desc: Install go-task
+    cmds:
+      - brew install --no-ask go-task
 
   delta-install:
     internal: true
@@ -42,17 +63,17 @@ tasks:
     cmds:
       - brew install --no-ask difftastic
 
-  hunkdiff-install:
-    internal: true
-    desc: Install hunkdiff
-    cmds:
-      - pnpm i -g hunkdiff
-
   lazygit-install:
     internal: true
     desc: Install lazygit
     cmds:
       - brew install --no-ask lazygit
+
+  worktrunk-install:
+    internal: true
+    desc: Install Worktrunk
+    cmds:
+      - brew install --no-ask worktrunk
 
   ripgrep-install:
     internal: true
@@ -130,12 +151,6 @@ tasks:
     desc: Install Cargo
     cmds:
       - brew install --no-ask rust
-
-  mdcat-install:
-    internal: true
-    desc: Install mdcat
-    cmds:
-      - brew install --no-ask mdcat
 
   lumen-install:
     internal: true
