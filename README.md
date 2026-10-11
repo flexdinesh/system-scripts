@@ -13,7 +13,7 @@ Machine setup and update flows via `go-task/task`.
   - mac-work: `brew`, `npm`
   - mac-neo: `brew`, `npm`
   - arch: `sudo`, `pacman`, `npm`
-- update taskfiles expect their referenced CLIs to already exist: `brew`, `pacman`, `paru`, `npm`, `bun`, `pnpm`, `nvim`, `code`, `flatpak`
+- update taskfiles expect their referenced CLIs to already exist: `brew`, `pacman`, `paru`, `gh`, `npm`, `bun`, `pnpm`, `nvim`, `code`, `flatpak`
 - flows that need `sudo` prompt once up front via `sudo -v`
 
 ## Setup

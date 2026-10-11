@@ -36,8 +36,17 @@ tasks:
     internal: true
     cmds:
       - task: flatpak-update
+      - task: gh-extensions-update
       - task: pnpm-update
       - task: neovim-update
+
+  gh-extensions-update:
+    internal: true
+    desc: Upgrade GitHub CLI extensions (gh stack)
+    ignore_error: true
+    timeout: 2m
+    cmds:
+      - gh extension upgrade --all
 
   pnpm-update:
     internal: true

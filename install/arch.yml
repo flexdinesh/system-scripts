@@ -13,6 +13,8 @@ tasks:
       - task: delta-install
       - task: difftastic-install
       - task: lazygit-install
+      - task: gh-install
+      - task: gh-stack-install
       - task: worktrunk-install
       - task: ripgrep-install
       - task: btop-install
@@ -39,6 +41,7 @@ tasks:
       - |
         echo 'Manual setup required:'
         echo 'After fish shell is set up, open fish and run: wt config shell install'
+        echo 'Authenticate GitHub CLI for gh stack: gh auth login'
 
   sudo-auth:
     internal: true
@@ -75,6 +78,18 @@ tasks:
     desc: Install lazygit
     cmds:
       - sudo pacman -S --noconfirm lazygit
+
+  gh-install:
+    internal: true
+    desc: Install GitHub CLI
+    cmds:
+      - sudo pacman -S --noconfirm github-cli
+
+  gh-stack-install:
+    internal: true
+    desc: Install gh-stack extension for stacked pull requests
+    cmds:
+      - gh extension install --force github/gh-stack
 
   worktrunk-install:
     internal: true
