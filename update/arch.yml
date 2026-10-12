@@ -39,6 +39,7 @@ tasks:
       - task: gh-extensions-update
       - task: pnpm-update
       - task: neovim-update
+      - task: claude-update
 
   gh-extensions-update:
     internal: true
@@ -72,3 +73,10 @@ tasks:
     cmds:
       - 'nvim --headless "+Lazy! update" +qa'
 
+  claude-update:
+    internal: true
+    desc: Update Claude Code
+    ignore_error: true
+    timeout: 5m
+    cmds:
+      - claude update
